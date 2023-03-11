@@ -1,0 +1,329 @@
+<?php 
+session_start();
+
+    include("connection.php");
+    include("functions.php");
+
+    $user_data = check_login($con);
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <link rel='icon' href="img/logo.png">
+
+    <link rel="stylesheet" href="css/style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+         <div class="navbar">
+             <div class="logo">
+                 <a href="index.php"><img src="img/logo.png" width="125px" style="border-radius: 10px;"></a>
+             </div>
+             <nav>
+                 <ul id="MenuItems">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="cars.php">Cars</a></li>
+                    <li><a href="car_parts.php">Car parts</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="Cart.php">Cart</a>  <img src="img/cart.png" width="30px" height="30px"></a></li>
+      
+                <li style="color: ghostwhite;"> Welcome, <?php echo $user_data['user_name']; ?></li>
+            <li><a href="logout.php">LOGOUT</a></li>
+                 </ul>
+             </nav>
+
+        </div>
+<div class="cart-container" style="float: right; display: none; ">
+
+            <h1><ins><i class='fa fa-shopping-cart'></i> Shopping Cart</ins></h1>
+            <div class="row">
+                <div>
+                    <button id="clear">Clear cart</button>
+                     <button>Checkout</button>
+                </div>
+            </div>
+            <div id="products">Loading cart...</div>
+            TOTAL: <span id="total"></span>
+        </div>
+
+
+        <div>
+
+
+  <div class="small-container">
+
+    <h2 class="title">CARS</h2>
+
+       <div class="row">
+           <div class="col-4">
+             <div class="card" name="Honda accord 2022" costs = "100" id="14">
+               <img src="img/Accord.jpg" style="width:100%; height: 180px;" >
+               <h4><a href="#">Honda accord 2022 </a></h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-o"></i>
+               </div>
+               <p>$25,000.00</p>
+              <input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+</div>
+           </div>
+
+           <div class="col-4">
+            <div class="card" name="Honda Civic 2022" costs = "100" id="15">
+            <img src="img/civic.jpg" style="width:100%; height: 180px;">
+            <h4><a href="#">Honda Civic 2022</a></h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-half-o"></i>
+               </div>
+               <p>$22,000.00</p>
+             <input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+</div>
+
+
+           <div class="col-4">
+<div class="card" name="Toyota Camry 2018" costs = "100" id="16">
+            <img src="img/camry.jpg" style="width:100%; height: 180px;">
+            <h4>Toyota Camry 2018</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-half-o"></i>
+               </div>
+               <p>$20,000.00</p>
+               <input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+
+           </div>
+
+</div>
+
+
+            <div class="col-4">
+<div class="card" name="Toyota RAV4 2018" costs = "100" id="17">
+                <img src="img/rav4.jpg" style="width:100%; height: 180px;">
+                <h4>Toyota RAV4 2018</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-o"></i>
+               </div>
+               <p>$22,000.00</p>
+              <input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+
+           </div>
+       </div>
+
+
+         <div class="row">
+           <div class="col-4">
+<div class="card" name="Nissan Altima 2022" costs = "100" id="18">
+            <img src="img/altima.jpg" style="width:100%; height: 180px;">
+               <h4>Nissan Altima 2022</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-o"></i>
+               </div>
+               <p>$22,500.00</p>
+              <input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+
+           </div>
+
+</div>
+
+
+           <div class="col-4">
+<div class="card" name="Nissan Sentra 2020" costs = "100" id="19">
+            <img src="img/sentra.jpg" style="width:100%; height: 180px;">
+               <h4>Nissan Sentra 2020</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-half-o"></i>
+               </div>
+               <p>$19,500.00</p>
+              <input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+</div>
+
+           <div class="col-4">
+<div class="card" name="BMW series 3" costs = "100" id="20">
+            <img src="img/series3.jpg" style="width:100%; height: 180px;">
+               <h4>BMW series 3</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-half-o"></i>
+               </div>
+               <p>$40,000.00</p>
+<input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+</div>
+
+            <div class="col-4">
+<div class="card" name="BMW X5" costs = "100" id="21">
+                <img src="img/x5.jpg" style="width:100%; height: 180px;">
+                <h4>BMW X5</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-o"></i>
+               </div>
+               <p>$60,000.00</p>
+<input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+       </div>
+</div>
+
+
+       <div class="row">
+           <div class="col-4">
+<div class="card" name="Ford Mustang 2018" costs = "100" id="22">
+            <img src="img/mustang.jpg" style="width:100%; height: 180px;">
+               <h4>Ford Mustang 2018</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-o"></i>
+               </div>
+               <p>$26,000.00</p>
+<input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+</div>
+
+           <div class="col-4">
+<div class="card" name="Ford Explorer 2019" costs = "100" id="23">
+            <img src="img/explorer.jpg" style="width:100%; height: 180px;">
+               <h4>Ford Explorer 2019</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-half-o"></i>
+               </div>
+               <p>$30,000.00</p>
+<input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+</div>
+           <div class="col-4">
+<div class="card" name="Dodge Challenger 2016" costs = "100" id="24">
+            <img src="img/challanger.jpg" style="width:100%; height: 180px;">
+               <h4>Dodge Challenger 2016</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-half-o"></i>
+               </div>
+</div>
+
+               <p>$21,500.00</p>
+<input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+            <div class="col-4">
+<div class="card" name="Dodge Durango 2018" costs = "100" id="25">
+                <img src="img/durrango.jpg" style="width:100%; height: 180px;">
+                <h4>Dodge Durango 2018</h4>
+               <div class="rating">
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star"></i>
+                   <i class="fa fa-star-o"></i>
+               </div>
+
+
+               <p>$35,500.00</p>
+<input type="text" class="amount" value="1" style="width:10%"/>
+    <button class="btn"><i class='fa fa-shopping-cart'></i> Add To Cart</button>
+           </div>
+       </div>
+   </div>
+        </div>
+</div>
+       <!--------------- footer ------------------>
+        <section class="footer">
+
+            <ul class="list">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Cart</a>
+                </li>
+                <li>
+                    <a href="#">Terms</a>
+                </li>
+                <li>
+                    <a href="#">Privacy Policy</a>
+                </li>
+            </ul>
+            <p class="copyright">
+                Car Mania @ 2021
+            </p>
+
+
+       </section>
+<script type="text/template" id="cartT">
+  <% _.each(items, function (item) { %> <div class = "panel"> <h3> <%= item.name %> </h3>  <span class="label">
+<%= item.amount %><% if(item.amount > 1)
+{%>
+<%}%> Quantity <%= item.cost %>$</span > </div>
+<% }); %>
+</script>
+  
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
+
+<script  src="script/scriptcart.js"></script>
+      
+</body>
+</html>
